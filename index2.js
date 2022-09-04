@@ -15,9 +15,12 @@ const init = () => {
         .then(resp=>resp.json())
         .then(data=>{
             console.log(data)
+    
+        const pTagCreateTitle=document.createElement('p');
+        const pTagUnderSummary=document.createElement('p');
 
-        const newPTagTitle=document.querySelector('#movieDetails h4')
-        const newPTagSummary=document.querySelector('#movieDetails p')
+        const newPTagTitle=document.querySelector('#movieDetails h4').appendChild(pTagCreateTitle)
+        const newPTagSummary=document.querySelector('#movieDetails p:nth-child(2)').appendChild(pTagUnderSummary)
         
         newPTagTitle.innerText=data.title
         newPTagSummary.innerText=data.summary
@@ -33,5 +36,3 @@ const init = () => {
 
 }
 document.addEventListener('DOMContentLoaded', init);
-
-
